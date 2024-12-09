@@ -35,4 +35,30 @@ export class Entry {
       entry.title.toLowerCase().includes(query.toLowerCase())
     );
   }
+  static editEntry(id: string) {
+    const entryArray = this.getDiaryEntries();
+    const entryToEdit = entryArray.find((entry) => entry.id === id);
+    return entryToEdit;
+  }
+  static updateEntry(
+    id: string,
+    updatedTitle: string,
+    updatedDate: string,
+    updatedBody: string
+  ): Entry | null {
+    const entryArray = this.getDiaryEntries();
+    const entryIndex = entryArray.findIndex((entry) => entry.id === id);
+
+    if (entryIndex !== -1) {
+      entryArray[entryIndex].title = updatedTitle;
+      entryArray[entryIndex].date = updatedDate;
+      entryArray[entryIndex].body = updatedBody;
+
+      localStorage.setItem("entries", JSON.stringify(entryArray));
+
+      return entryArray[entryIndex];
+    } else {
+      return null;
+    }
+  }
 }

@@ -1061,6 +1061,11 @@ has-flag@^4.0.0:
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
   integrity sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
 
+hydro-js@^1.5.21:
+  version "1.5.22"
+  resolved "https://registry.yarnpkg.com/hydro-js/-/hydro-js-1.5.22.tgz#101d515df63a34c5832aea2371ad626fb04e6a93"
+  integrity sha512-Pk9/Dlsqvt+y4vjF1reAroXXirKyHsjyysgbgy6xO/7tvLAQMO4RP3E2K59D+MfiuW0gG99pgcFQadiDj5n9pg==
+
 ignore@^5.2.0, ignore@^5.3.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.2.tgz#3cd40e729f3643fd87cb04e50bf0eb722bc596f5"
@@ -1262,6 +1267,11 @@ path-key@^3.1.0:
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-3.1.1.tgz#581f6ade658cbba65a0d3380de7753295054f375"
   integrity sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
 
+path-to-regexp@6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.3.0.tgz#2b6a26a337737a8e1416f9272ed0766b1c0389f4"
+  integrity sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==
+
 picocolors@^1.0.0, picocolors@^1.1.0, picocolors@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
@@ -1349,6 +1359,14 @@ rollup@^4.23.0:
     "@rollup/rollup-win32-ia32-msvc" "4.28.0"
     "@rollup/rollup-win32-x64-msvc" "4.28.0"
     fsevents "~2.3.2"
+
+router-dom@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/router-dom/-/router-dom-3.0.1.tgz#49c30c9e13f862088565a64445e5b0c816c07d7b"
+  integrity sha512-vXSZ2vIbA+5jvyvUTQhAOErPGDo3GBbu8kiTvIX5l6yCuFjE7hC5V2in2N9Rp8Ay9bTOOYZboRobxT8OynYigw==
+  dependencies:
+    hydro-js "^1.5.21"
+    path-to-regexp "6.3.0"
 
 run-parallel@^1.1.9:
   version "1.2.0"

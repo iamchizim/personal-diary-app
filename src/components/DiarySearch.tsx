@@ -3,11 +3,11 @@ import { useState } from "react";
 
 import { Entry } from "../utils/diary";
 
-const DairySearch = () => {
+const DiarySearch = () => {
   const [input, setInput] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Entry[]>([]);
   const [hasSearched, setHasSearched] = useState<boolean>(false);
-  
+
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
     setHasSearched(true);
@@ -44,4 +44,4 @@ const DairySearch = () => {
   );
 };
 
-export default DairySearch;
+export default DiarySearch;

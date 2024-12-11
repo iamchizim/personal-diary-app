@@ -13,7 +13,7 @@ const DiaryList: React.FC<EntryListProps> = ({ entries, deleteEntry }) => {
         <div key={entry.id}>
           <h3>{entry.title}</h3>
           <h4>{entry.date}</h4>
-          <button onClick={() => deleteEntry}>Delete</button>
+          <button onClick={() => deleteEntry(entry.id)}>Delete</button>
           <Link to={`DiaryDetails${entry.date}`} state={{ entry }}>
             Read More
           </Link>

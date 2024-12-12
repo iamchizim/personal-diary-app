@@ -1,12 +1,14 @@
 import { generateId } from "./generateId";
 export class Entry {
   id: string;
+  category: string
   title: string;
   date: string;
   body: string;
 
-  constructor(title: string, date: string, body: string) {
+  constructor(category: string,title: string, date: string, body: string) {
     this.id = generateId();
+    this.category = category
     this.title = title;
     this.date = date;
     this.body = body;

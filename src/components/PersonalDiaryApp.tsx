@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useState, useEffect } from "react";
 import { Entry } from "../utils/diary";
 import DiaryForm from "./DiaryForm";
@@ -12,12 +12,18 @@ const PersonalDiaryApp = () => {
     setEntries(Entry.getDiaryEntries);
   }, []);
 
+  const refreshEntries = () => {
+    setEntries(Entry.getDiaryEntries());
+  };
+
   const deleteEntry = (id: string) => {
     Entry.deleteEntry(id);
+    refreshEntries()
   };
+  
   return (
     <section>
-      <DiaryForm />
+      <DiaryForm refreshEntries={refreshEntries} />
       <DiaryList entries={entries} deleteEntry={deleteEntry} />
       <DiarySearch />
     </section>

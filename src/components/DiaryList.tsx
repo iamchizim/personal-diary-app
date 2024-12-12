@@ -16,7 +16,8 @@ const DiaryList: React.FC<EntryListProps> = ({ entries, deleteEntry }) => {
           <ul>
             {categorizedEntries[category].map((entry) => (
               <li key={entry.id}>
-                {entry.title}
+               <p>Title: {entry.title}</p>
+               <p>Date:{entry.date}</p> 
                 <Link to={`/DiaryDetails/${entry.id}`} state={{ entry }}>
                   Read More
                 </Link>

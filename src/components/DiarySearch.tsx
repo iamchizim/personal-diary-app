@@ -34,10 +34,10 @@ const DiarySearch = () => {
         {searchResults.length > 0 &&
           searchResults.map((entry) => (
             <div>
-              <h3>{entry.category}</h3>
-              <h4>{entry.date}</h4>
-              <h5>{entry.title}</h5>
-              <p>{entry.body}</p>
+              <h3>Category: {entry.category}</h3>
+              <h4>Date: {entry.date}</h4>
+              <h5>Title: {entry.title}</h5>
+              <p>Body: {entry.body}</p>
             </div>
           ))}
       </div>

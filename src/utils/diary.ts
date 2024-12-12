@@ -1,16 +1,16 @@
 import { generateId } from "./generateId";
 export class Entry {
   id: string;
-  category: string
-  title: string;
+  category: string;
   date: string;
+  title: string;
   body: string;
 
-  constructor(category: string,title: string, date: string, body: string) {
+  constructor(category: string, date: string, title: string, body: string) {
     this.id = generateId();
-    this.category = category
-    this.title = title;
+    this.category = category;
     this.date = date;
+    this.title = title;
     this.body = body;
   }
 
@@ -37,24 +37,20 @@ export class Entry {
       entry.title.toLowerCase().includes(query.toLowerCase())
     );
   }
-  static editEntry(id: string) {
-    const entryArray = this.getDiaryEntries();
-    const entryToEdit = entryArray.find((entry) => entry.id === id);
-    return entryToEdit;
-  }
+
   static updateEntry(
     id: string,
-    updatedTitle: string,
     updatedDate: string,
+    updatedTitle: string,
     updatedBody: string
   ): Entry | null {
     const entryArray = this.getDiaryEntries();
     const entryIndex = entryArray.findIndex((entry) => entry.id === id);
 
     if (entryIndex !== -1) {
-      entryArray[entryIndex].title = updatedTitle;
       entryArray[entryIndex].date = updatedDate;
-      entryArray[entryIndex].body = updatedBody;
+      entryArray[entryIndex].title = updatedTitle;
+     entryArray[entryIndex].body = updatedBody;
 
       localStorage.setItem("entries", JSON.stringify(entryArray));
 

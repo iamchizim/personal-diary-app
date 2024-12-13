@@ -38,25 +38,5 @@ export class Entry {
     );
   }
 
-  static updateEntry(
-    id: string,
-    updatedDate: string,
-    updatedTitle: string,
-    updatedBody: string
-  ): Entry | null {
-    const entryArray = this.getDiaryEntries();
-    const entryIndex = entryArray.findIndex((entry) => entry.id === id);
-
-    if (entryIndex !== -1) {
-      entryArray[entryIndex].date = updatedDate;
-      entryArray[entryIndex].title = updatedTitle;
-     entryArray[entryIndex].body = updatedBody;
-
-      localStorage.setItem("entries", JSON.stringify(entryArray));
-
-      return entryArray[entryIndex];
-    } else {
-      return null;
-    }
-  }
+  
 }

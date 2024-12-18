@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Editor } from '@tinymce/tinymce-react';
 import { Entry } from '../utils/diary';
+import RichTextEditor from './RichTextEditor';
 
 interface DiaryFormProps {
   refreshEntries: () => void;
@@ -10,25 +10,20 @@ const DiaryForm: React.FC<DiaryFormProps> = ({ refreshEntries }) => {
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('');
   const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
 
   const handleAddEntry = (event: React.FormEvent) => {
     event.preventDefault();
+    const editorElement = document.getElementById('editor');
+    const body = editorElement ? editorElement.innerHTML : '';
     const newEntry = new Entry(category, date, title, body);
     Entry.addEntry(newEntry);
     refreshEntries();
     setCategory('');
     setDate('');
     setTitle('');
-    setBody('');
-  };
-
-  const handleTitleChange = (content: string) => {
-    setTitle(content);
-  };
-
-  const handleBodyChange = (content: string) => {
-    setBody(content);
+    if (editorElement) {
+      editorElement.innerHTML = ''; 
+    }
   };
 
   return (
@@ -52,26 +47,15 @@ const DiaryForm: React.FC<DiaryFormProps> = ({ refreshEntries }) => {
           required
         />
         <h4>Title:</h4>
-        <Editor
+        <input
+          type="text"
+          onChange={(event) => setTitle(event.target.value)}
           value={title}
-          init={{
-            menubar: false,
-            toolbar: 'bold italic underline | alignleft aligncenter alignright | undo redo',
-            inline: true,
-          }}
-          onEditorChange={handleTitleChange}
+          placeholder="Input title"
+          required
         />
         <h4>Body:</h4>
-        <Editor
-          value={body}
-          init={{
-            height: 300,
-            menubar: false,
-            plugins: 'link',
-            toolbar: 'bold italic underline | alignleft aligncenter alignright | undo redo | link',
-          }}
-          onEditorChange={handleBodyChange}
-        />
+        <RichTextEditor />
         <button type="submit">Add entry</button>
       </form>
     </section>
@@ -79,3 +63,4 @@ const DiaryForm: React.FC<DiaryFormProps> = ({ refreshEntries }) => {
 };
 
 export default DiaryForm;
+

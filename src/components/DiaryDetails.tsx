@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-
 const DiaryDetails = () => {
   const location = useLocation();
   const { entry } = location.state;
@@ -7,7 +6,7 @@ const DiaryDetails = () => {
   return (
     <section>
       <h3>{entry.date}</h3>
-      <h4>{entry.title}</h4>
+      <h3>{entry.title}</h3>
       <p>{entry.body}</p>
     </section>
   );

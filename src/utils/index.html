@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rich Text Editor</title>
+  <style>
+    .toolbar {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .editor {
+      border: 1px solid #ccc;
+      padding: 10px;
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="execCmd('bold')">Bold</button>
+    <button onclick="execCmd('italic')">Italic</button>
+    <button onclick="execCmd('underline')">Underline</button>
+    <button onclick="execCmd('insertOrderedList')">Ordered List</button>
+    <button onclick="execCmd('insertUnorderedList')">Unordered List</button>
+    <button onclick="execCmd('createLink', prompt('Enter URL:', 'http://'))">Insert Link</button>
+    <button onclick="execCmd('unlink')">Remove Link</button>
+  </div>
+  <div id="editor" class="editor" contenteditable="true"></div>
+  <script>
+    function execCmd(command, value = null) {
+      document.execCommand(command, false, value);
+    }
+  </script>
+</body>
+</html>

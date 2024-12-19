@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
-import { Entry } from '../utils/diary';
-import RichTextEditor from './RichTextEditor';
+import React, { useState } from "react";
+import { Entry } from "../utils/diary";
+import RichTextEditor from "./RichTextEditor";
 
 interface DiaryFormProps {
   refreshEntries: () => void;
 }
 
 const DiaryForm: React.FC<DiaryFormProps> = ({ refreshEntries }) => {
-  const [category, setCategory] = useState('');
-  const [date, setDate] = useState('');
-  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState("");
+  const [date, setDate] = useState("");
+  const [title, setTitle] = useState("");
 
   const handleAddEntry = (event: React.FormEvent) => {
     event.preventDefault();
-    const editorElement = document.getElementById('editor');
-    const body = editorElement ? editorElement.innerHTML : '';
+    const editorElement = document.getElementById("editor");
+    const body = editorElement ? editorElement.innerHTML : "";
     const newEntry = new Entry(category, date, title, body);
     Entry.addEntry(newEntry);
     refreshEntries();
-    setCategory('');
-    setDate('');
-    setTitle('');
+    setCategory("");
+    setDate("");
+    setTitle("");
+
     if (editorElement) {
-      editorElement.innerHTML = ''; 
+      editorElement.innerHTML = "";
     }
   };
 
   return (
     <section>
+      <h2>DIARY FORM</h2>
       <form onSubmit={handleAddEntry}>
-        <h2>DIARY FORM</h2>
         <h4>Category:</h4>
         <input
           type="text"
@@ -56,6 +57,8 @@ const DiaryForm: React.FC<DiaryFormProps> = ({ refreshEntries }) => {
         />
         <h4>Body:</h4>
         <RichTextEditor />
+        <h4>File:</h4>
+
         <button type="submit">Add entry</button>
       </form>
     </section>
@@ -63,4 +66,3 @@ const DiaryForm: React.FC<DiaryFormProps> = ({ refreshEntries }) => {
 };
 
 export default DiaryForm;
-

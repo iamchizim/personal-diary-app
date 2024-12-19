@@ -1,4 +1,5 @@
 import { generateId } from "./generateId";
+
 export class Entry {
   id: string;
   category: string;
@@ -12,6 +13,7 @@ export class Entry {
     this.date = date;
     this.title = title;
     this.body = body;
+  
   }
 
   static getDiaryEntries(): Entry[] {
@@ -37,6 +39,4 @@ export class Entry {
       entry.title.toLowerCase().includes(query.toLowerCase())
     );
   }
-
-  
 }
